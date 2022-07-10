@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppSharedLowModule } from './modules/shared/app-shared.module';
+import { AppCoreModule } from './modules/core/core.module';
+import { AppRoutingModule } from './app-routing.module';
+import { RootModule } from './modules/pages/root/root.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppCoreModule,
+    AppSharedLowModule,
+    RootModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
