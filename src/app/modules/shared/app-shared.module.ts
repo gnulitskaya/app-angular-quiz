@@ -5,9 +5,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // import { MatCheckboxModule } from '@angular/material/checkbox';
 // import { MatDialogModule } from '@angular/material/dialog';
-// import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 // import { MatMenuModule } from '@angular/material/menu';
-// import { MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import { MatRadioModule } from '@angular/material/radio';
 // import { MatSelectModule } from '@angular/material/select';
@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 // import { MatSnackBarModule } from '@angular/material/snack-bar';
 // import { MatTableModule } from '@angular/material/table';
 // import { MatTabsModule } from '@angular/material/tabs';
-// import { MatStepperModule } from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
@@ -25,12 +25,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatSlideToggleModule,
     MatToolbarModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
     MatToolbarModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
 })
