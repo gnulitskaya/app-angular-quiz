@@ -1,14 +1,102 @@
 <div class="wrapper">
   <div class="header">
     <mat-toolbar>
-      <mat-slide-toggle checked (click)="toggleDarkTheme()" >SLEEEP NOW!</mat-slide-toggle>
+      <mat-slide-toggle checked (click)="toggleDarkTheme()"
+        >SLEEEP NOW!</mat-slide-toggle
+      >
     </mat-toolbar>
   </div>
   <div class="main__container">
-    <h2 class="title"></h2>
+    <h1>Расчет стоимости дизайн-проекта</h1>
+    <h3>Пройдите тест и получите подарок при заказе дизайн-проекта</h3>
+    <!-- <h2 class="title"></h2>
     <div class="body">
-      <mat-card>A starter template for an Angular Web Application with Material + dark theme</mat-card>
+      <mat-card>A starter template for an Angular Web Application with Material + dark theme <br> {{price}}</mat-card>
+    </div> -->
+
+    <!-- <div>
+      <mat-stepper labelPosition="bottom" #stepper class='pt-4'>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <h2>В каком стиле вы хотите интерьер?</h2>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" optional>
+          <form [formGroup]="secondFormGroup">
+            <mat-form-field appearance="fill">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                     required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </div> -->
+
+    <div class="quiz-wrapper">
+      <div class="quiz-wrapper__body">
+        <h2 class="quiz-wrapper__title">Выберите Тип обьекта</h2>
+        <ul class="quiz-list">
+          <li class="quiz-list__item">
+            <label class="checkbox">
+              <input type="checkbox" value="Квартира" />
+              <span class="check"></span>
+              <img src="../assets/flat.jpeg" alt="" />
+              <h4 class="quiz-list__item-title">Квартира</h4>
+            </label>
+          </li>
+          <li class="quiz-list__item">
+            <label class="checkbox">
+              <input type="checkbox" value="Квартира" />
+              <span class="check"></span>
+              <img src="../assets/house.jpeg" alt="" />
+              <h4 class="quiz-list__item-title">Дом</h4>
+            </label>
+          </li>
+          <li class="quiz-list__item">
+            <label class="checkbox">
+              <input type="checkbox" value="Квартира" />
+              <span class="check"></span>
+              <img src="../assets/office.jpeg" alt="" />
+              <h4 class="quiz-list__item-title">Офис</h4>
+            </label>
+          </li>
+          <li class="quiz-list__item">
+            <label class="checkbox">
+              <input type="checkbox" value="Квартира" />
+              <span class="check"></span>
+              <img src="../assets/cafe.jpeg" alt="" />
+              <h4 class="quiz-list__item-title">Ресторан, кафе</h4>
+            </label>
+          </li>
+          <li class="quiz-list__item">
+            <label class="checkbox">
+              <input type="checkbox" value="Квартира" />
+              <span class="check"></span>
+              <img src="../assets/shop.jpeg" alt="" />
+              <h4 class="quiz-list__item-title">Магазин</h4>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="quiz-wrapper__footer">
+        <button mat-stroked-button>Назад</button>
+        <button mat-flat-button color="primary">Далее</button>
+      </div>
     </div>
   </div>
-
 </div>

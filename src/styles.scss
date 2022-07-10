@@ -3,3 +3,7 @@
 @import "app/style/material.scss";
 @import "app/style/variables.scss";
 
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header-container {
+  display: none !important;
+}

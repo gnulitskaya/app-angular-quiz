@@ -5,7 +5,7 @@
 
 // Подключение шрифтов ===========================================================================================================================================================================================================================================================================
 //&display=swap - добавить при подключении через плагин
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&family=Raleway:wght@300&display=swap');
 // Подключить если есть локальные файлы шрифтов
 //@import "fonts/fonts";
 
@@ -14,7 +14,7 @@
 //@import "fonts/icons";
 
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
-$fontFamily: "Poppins";
+$fontFamily: "Nunito";
 $fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
 $fontWeight: 500;
 
@@ -100,6 +100,7 @@ body {
 			max-width: rem($maxWidthContainer);
 			box-sizing: content-box;
 			margin: 0 auto;
+      width: 100%;
 		}
 		@if ($containerPadding>0) {
 			padding: 0 rem(math.div($containerPadding, 2));
@@ -109,6 +110,7 @@ body {
 	// По брейк-поинтам
 	[class*="__container"] {
 		margin: 0 auto;
+    width: 100%;
 		@if ($maxWidthContainer>0) {
 			max-width: rem($maxWidthContainer);
 			box-sizing: content-box;
