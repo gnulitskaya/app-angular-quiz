@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -10,14 +11,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatSlideToggleModule,
-    MatToolbarModule],
+    MatToolbarModule,
+  ],
   providers: [],
 })
-
-export class AppSharedLowModule{}
+export class AppSharedLowModule {}
