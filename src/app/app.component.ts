@@ -1,27 +1,45 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 import storeJson from './store.json';
+
+export interface Option {
+  id: number;
+  name: string;
+  price: number
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
+  
   @Input() checked: boolean = true;
-  price: string = storeJson.price;
 
-  constructor(private _formBuilder: FormBuilder){}
+  quizList = storeJson;
 
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-  isLinear = false;
+  index: number = 0;
+  slideIndex$$: BehaviorSubject<number> = new BehaviorSubject<number>(this.index);
+
+  constructor(){}
 
   toggleDarkTheme(): void {
     document.body.classList.toggle('darkMode');
+  }
+
+  nextClick(): void {
+    if (this.index < storeJson.length - 1) {
+      this.slideIndex$$.next(++this.index);
+      console.log(this.slideIndex$$.getValue())
+    }
+  }
+
+  prevClick(): void {
+    if(this.index > 0) {
+      this.slideIndex$$.next(--this.index);
+      console.log(this.slideIndex$$.getValue())
+    }
   }
 }

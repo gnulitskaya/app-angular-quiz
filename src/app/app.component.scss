@@ -5,6 +5,9 @@
   &__title {
     margin-bottom: 20px;
   }
+  &__footer {
+    margin-top: 10px;
+  }
 }
 
 .quiz-list {
@@ -50,12 +53,12 @@
   }
 }
 
-.checkbox {
+.radio {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  input[type="checkbox"] {
+  input[type="radio"] {
     position: absolute;
     left: 0;
     opacity: 0;
@@ -81,7 +84,13 @@
   border: 2px solid #ba9160;
 }
 
-.checkbox input:checked + .check {
+.radio input:checked + .check {
   display: block;
 }
 
+.main-header {
+  margin: 20px 0 10px 0;
+}
+.next-btn {
+  margin-left: 10px;
+}

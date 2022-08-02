@@ -1,3 +1,91 @@
-{
-  "price": "4500"
-}
+[
+  {
+    "id": 0,
+    "title": "Выберите Тип обьекта",
+    "options": [
+      {
+        "id": 1,
+        "name": "Квартира",
+        "price": 6000,
+        "img": "../assets/flat.jpeg",
+        "type": "radio"
+      },
+      {
+        "id": 2,
+        "name": "Дом",
+        "price": 7000,
+        "img": "../assets/house.jpeg",
+        "type": "radio"
+      },
+      {
+        "id": 3,
+        "name": "Офис",
+        "price": 7000,
+        "img": "../assets/office.jpeg",
+        "type": "radio"
+      },
+      {
+        "id": 4,
+        "name": "Ресторан, кафе",
+        "price": 7000,
+        "img": "../assets/cafe.jpeg",
+        "type": "radio"
+      },
+      {
+        "id": 5,
+        "name": "Магазин",
+        "price": 7000,
+        "img": "../assets/shop.jpeg",
+        "type": "radio"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "В каком стиле вы хотите интерьер?",
+    "options": [
+      {
+        "id": 1,
+        "name": "Современный",
+        "price": 6000,
+        "img": "../assets/modern.jpeg",
+        "type": "radio1"
+      },
+      {
+        "id": 2,
+        "name": "Скандинавский IKEA",
+        "price": 7000,
+        "img": "../assets/ikea.jpeg",
+        "type": "radio1"
+      },
+      {
+        "id": 3,
+        "name": "Лофт",
+        "price": 7000,
+        "img": "../assets/loft.jpeg",
+        "type": "radio1"
+      },
+      {
+        "id": 4,
+        "name": "Классический",
+        "price": 7000,
+        "img": "../assets/classical.jpeg",
+        "type": "radio1"
+      },
+      {
+        "id": 5,
+        "name": "Арт-деко",
+        "price": 7000,
+        "img": "../assets/artdeko.jpeg",
+        "type": "radio1"
+      },
+      {
+        "id": 6,
+        "name": "Другой",
+        "price": 7000,
+        "img": "../assets/other.jpeg",
+        "type": "radio1"
+      }
+    ]
+  }
+]
