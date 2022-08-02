@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 // import { MatTableModule } from '@angular/material/table';
 // import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -27,7 +28,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatToolbarModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
@@ -36,7 +38,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatToolbarModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatChipsModule
   ],
   providers: [],
 })

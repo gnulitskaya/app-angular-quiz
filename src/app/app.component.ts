@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import storeJson from './store.json';
 
 export interface Option {
@@ -14,7 +16,7 @@ export interface Option {
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   
   @Input() checked: boolean = true;
 
@@ -22,8 +24,21 @@ export class AppComponent {
 
   index: number = 0;
   slideIndex$$: BehaviorSubject<number> = new BehaviorSubject<number>(this.index);
+  resultsPrice$$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
+  public quiz: FormGroup = new FormGroup({
+    type: new FormControl(''),
+    style: new FormControl(''),
+  })
 
   constructor(){}
+
+  ngOnInit(): void {
+    this.quiz.valueChanges.pipe(
+      map(x => Number(x.type) + Number(x.style)),
+      map(x => this.resultsPrice$$.next(x))
+    ).subscribe();
+  }
 
   toggleDarkTheme(): void {
     document.body.classList.toggle('darkMode');
@@ -42,4 +57,5 @@ export class AppComponent {
       console.log(this.slideIndex$$.getValue())
     }
   }
+
 }

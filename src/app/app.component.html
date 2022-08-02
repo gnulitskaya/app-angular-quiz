@@ -12,24 +12,34 @@
 
     <div class="quiz-wrapper">
       <div *ngFor="let item of quizList">
-        <div *ngIf="slideIndex$$.getValue() == item.id" class="quiz-wrapper__body">
+        <form [formGroup]="quiz" class="quiz-wrapper__body" 
+        *ngIf="slideIndex$$.getValue() == item.id">
           <h2 class="quiz-wrapper__title">{{item.title}}</h2>
           <ul class="quiz-list">
             <li class="quiz-list__item" *ngFor="let i of item.options">
               <label class="radio">
-                <input type="radio" name="{{i.type}}" value="{{i.name}}" />
+                <input type="radio" name="{{i.control}}" value="{{i.price}}" 
+                formControlName="{{i.control}}"/>
                 <span class="check"></span>
                 <img [src]="i.img" [alt]="i.name" />
                 <h4 class="quiz-list__item-title">{{i.name}}</h4>
               </label>  
             </li>
           </ul>
-        </div>
+        </form>
       </div>
 
       <div class="quiz-wrapper__footer">
-        <button mat-stroked-button (click)="prevClick()">Назад</button>
-        <button mat-flat-button color="primary" class="next-btn" (click)="nextClick()">Далее</button>
+        <div class="quiz-wrapper__footer-inner">
+          <button mat-stroked-button (click)="prevClick()">Назад</button>
+          <button mat-flat-button color="primary" class="next-btn" (click)="nextClick()">Далее</button>
+        </div>
+
+        <mat-chip-list aria-label="Result price">
+          <span>Result:</span>
+          <mat-chip color="accent" selected>{{resultsPrice$$ | async}}</mat-chip>
+        </mat-chip-list>
+
       </div>
     </div>
   </div>

@@ -8,35 +8,35 @@
         "name": "Квартира",
         "price": 6000,
         "img": "../assets/flat.jpeg",
-        "type": "radio"
+        "control": "type"
       },
       {
         "id": 2,
         "name": "Дом",
         "price": 7000,
         "img": "../assets/house.jpeg",
-        "type": "radio"
+        "control": "type"
       },
       {
         "id": 3,
         "name": "Офис",
-        "price": 7000,
+        "price": 8000,
         "img": "../assets/office.jpeg",
-        "type": "radio"
+        "control": "type"
       },
       {
         "id": 4,
         "name": "Ресторан, кафе",
-        "price": 7000,
+        "price": 9000,
         "img": "../assets/cafe.jpeg",
-        "type": "radio"
+        "control": "type"
       },
       {
         "id": 5,
         "name": "Магазин",
-        "price": 7000,
+        "price": 12000,
         "img": "../assets/shop.jpeg",
-        "type": "radio"
+        "control": "type"
       }
     ]
   },
@@ -47,44 +47,44 @@
       {
         "id": 1,
         "name": "Современный",
-        "price": 6000,
+        "price": 1000,
         "img": "../assets/modern.jpeg",
-        "type": "radio1"
+        "control": "style"
       },
       {
         "id": 2,
         "name": "Скандинавский IKEA",
-        "price": 7000,
+        "price": 2000,
         "img": "../assets/ikea.jpeg",
-        "type": "radio1"
+        "control": "style"
       },
       {
         "id": 3,
         "name": "Лофт",
-        "price": 7000,
+        "price": 3000,
         "img": "../assets/loft.jpeg",
-        "type": "radio1"
+        "control": "style"
       },
       {
         "id": 4,
         "name": "Классический",
-        "price": 7000,
+        "price": 4000,
         "img": "../assets/classical.jpeg",
-        "type": "radio1"
+        "control": "style"
       },
       {
         "id": 5,
         "name": "Арт-деко",
-        "price": 7000,
+        "price": 5000,
         "img": "../assets/artdeko.jpeg",
-        "type": "radio1"
+        "control": "style"
       },
       {
         "id": 6,
         "name": "Другой",
-        "price": 7000,
+        "price": 6000,
         "img": "../assets/other.jpeg",
-        "type": "radio1"
+        "control": "style"
       }
     ]
   }
