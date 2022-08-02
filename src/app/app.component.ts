@@ -29,13 +29,16 @@ export class AppComponent implements OnInit {
   public quiz: FormGroup = new FormGroup({
     type: new FormControl(''),
     style: new FormControl(''),
+    budget: new FormControl(''),
+    time: new FormControl(''),
+    share: new FormControl(''),
   })
 
   constructor(){}
 
   ngOnInit(): void {
     this.quiz.valueChanges.pipe(
-      map(x => Number(x.type) + Number(x.style)),
+      map(x => Number(x.type) + Number(x.style) + Number(x.budget) + Number(x.time) + Number(x.share)),
       map(x => this.resultsPrice$$.next(x))
     ).subscribe();
   }

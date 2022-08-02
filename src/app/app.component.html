@@ -21,7 +21,7 @@
                 <input type="radio" name="{{i.control}}" value="{{i.price}}" 
                 formControlName="{{i.control}}"/>
                 <span class="check"></span>
-                <img [src]="i.img" [alt]="i.name" />
+                <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
                 <h4 class="quiz-list__item-title">{{i.name}}</h4>
               </label>  
             </li>
