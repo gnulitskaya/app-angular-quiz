@@ -16,7 +16,8 @@
         *ngIf="slideIndex$$.getValue() == item.id">
           <h2 class="quiz-wrapper__title">{{item.title}}</h2>
           <ul class="quiz-list">
-            <li class="quiz-list__item" *ngFor="let i of item.options">
+            <li class="quiz-list__item" *ngFor="let i of item.options"
+            (click)="selectItem()">
               <label class="radio">
                 <input type="radio" name="{{i.control}}" value="{{i.price}}" 
                 formControlName="{{i.control}}"/>
@@ -37,7 +38,7 @@
 
         <mat-chip-list aria-label="Result price">
           <span>Result:</span>
-          <mat-chip color="accent" selected>{{resultsPrice$$ | async}}</mat-chip>
+          <mat-chip color="accent" selected>{{resultsPrice$$ | async}} $</mat-chip>
         </mat-chip-list>
 
       </div>

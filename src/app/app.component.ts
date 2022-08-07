@@ -61,4 +61,11 @@ export class AppComponent implements OnInit {
     }
   }
 
+  selectItem(): void {
+    if (this.index < storeJson.length - 1) {
+      this.slideIndex$$.next(++this.index);
+      console.log(this.slideIndex$$.getValue())
+    }
+  }
+
 }
