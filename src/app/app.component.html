@@ -10,14 +10,15 @@
     <h1 class="main-header">Расчет стоимости дизайн-проекта</h1>
     <h3 class="main-text">Пройдите тест и получите подарок при заказе дизайн-проекта</h3>
 
-    <div class="quiz-wrapper">
+    <div class="quiz">
       <div *ngFor="let item of quizList">
-        <form [formGroup]="quiz" class="quiz-wrapper__body"
+        <form [formGroup]="quiz" class="quiz__body"
         *ngIf="slideIndex$$.getValue() == item.id">
-          <h2 class="quiz-wrapper__title">{{item.title}}</h2>
+          <h2 class="quiz__title">{{item.title}}</h2>
           <ul class="quiz-list">
-            <li class="quiz-list__item" *ngFor="let i of item.options">
+
             <ng-container *ngIf="item.type == 'radio'">
+              <li class="quiz-list__item" *ngFor="let i of item.options">
               <label class="radio">
                 <input type="radio" name="{{i.control}}" value="{{i.price}}"
                 formControlName="{{i.control}}" (click)="selectItem()"/>
@@ -25,18 +26,19 @@
                 <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
                 <h4 class="quiz-list__item-title">{{i.name}}</h4>
               </label>
+            </li>
             </ng-container>
 
             <ng-container *ngIf="item.type == 'text'">
-              <div>{{i.name}}</div>
+              <div *ngFor="let i of item.options">{{i.name}}</div>
             </ng-container>
-          </li>
+
           </ul>
         </form>
       </div>
 
-      <div class="quiz-wrapper__footer">
-        <div class="quiz-wrapper__footer-inner">
+      <div class="quiz__footer">
+        <div class="quiz__footer-inner">
           <button mat-stroked-button (click)="prevClick()">Назад</button>
           <button mat-flat-button color="primary" class="next-btn" (click)="nextClick()">Далее</button>
         </div>
