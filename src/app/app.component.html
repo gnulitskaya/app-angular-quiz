@@ -12,20 +12,25 @@
 
     <div class="quiz-wrapper">
       <div *ngFor="let item of quizList">
-        <form [formGroup]="quiz" class="quiz-wrapper__body" 
+        <form [formGroup]="quiz" class="quiz-wrapper__body"
         *ngIf="slideIndex$$.getValue() == item.id">
           <h2 class="quiz-wrapper__title">{{item.title}}</h2>
           <ul class="quiz-list">
-            <li class="quiz-list__item" *ngFor="let i of item.options"
-            (click)="selectItem()">
+            <li class="quiz-list__item" *ngFor="let i of item.options">
+            <ng-container *ngIf="item.type == 'radio'">
               <label class="radio">
-                <input type="radio" name="{{i.control}}" value="{{i.price}}" 
-                formControlName="{{i.control}}"/>
+                <input type="radio" name="{{i.control}}" value="{{i.price}}"
+                formControlName="{{i.control}}" (click)="selectItem()"/>
                 <span class="check"></span>
                 <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
                 <h4 class="quiz-list__item-title">{{i.name}}</h4>
-              </label>  
-            </li>
+              </label>
+            </ng-container>
+
+            <ng-container *ngIf="item.type == 'text'">
+              <div>{{i.name}}</div>
+            </ng-container>
+          </li>
           </ul>
         </form>
       </div>

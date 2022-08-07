@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { map, switchMap, take, tap, mapTo } from 'rxjs/operators';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import storeJson from './store.json';
 
 export interface Option {
@@ -10,6 +11,7 @@ export interface Option {
   price: number
 }
 
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +19,7 @@ export interface Option {
 })
 
 export class AppComponent implements OnInit {
-  
+
   @Input() checked: boolean = true;
 
   quizList = storeJson;
@@ -39,7 +41,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.quiz.valueChanges.pipe(
       map(x => Number(x.type) + Number(x.style) + Number(x.budget) + Number(x.time) + Number(x.share)),
-      map(x => this.resultsPrice$$.next(x))
+      map(x => this.resultsPrice$$.next(x)),
+      switchMap(() => this.selectItem()),
+      untilDestroyed(this)
     ).subscribe();
   }
 
@@ -61,11 +65,17 @@ export class AppComponent implements OnInit {
     }
   }
 
-  selectItem(): void {
-    if (this.index < storeJson.length - 1) {
-      this.slideIndex$$.next(++this.index);
-      console.log(this.slideIndex$$.getValue())
-    }
+  selectItem(): Observable<void> {
+    return of(void 0).pipe(
+      take(1),
+      tap(() => {
+        if (this.index < storeJson.length - 1) {
+          this.slideIndex$$.next(++this.index);
+          console.log(this.slideIndex$$.getValue())
+        }
+      }),
+      mapTo(void 0)
+    )
   }
 
 }
