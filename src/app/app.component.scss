@@ -90,6 +90,9 @@
     flex: 0 1 49%;
     margin-bottom: 1rem;
     padding: 7px;
+    @media (max-width: $mobile) {
+      flex: 0 1 100%;
+    }
     .check {
       left: 12px;
       top: 11px;
