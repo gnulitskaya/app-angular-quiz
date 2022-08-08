@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, BehaviorSubject, of } from 'rxjs';
-import { map, switchMap, take, tap, mapTo, delay } from 'rxjs/operators';
+import { map, switchMap, take, tap, mapTo } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import storeJson from './store.json';
 
@@ -67,7 +67,6 @@ export class AppComponent implements OnInit {
 
   selectItem(): Observable<void> {
     return of(void 0).pipe(
-      delay(500),
       take(1),
       tap(() => {
         if (this.index < storeJson.length - 1) {
