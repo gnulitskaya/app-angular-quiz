@@ -14,26 +14,37 @@
       <div *ngFor="let item of quizList">
         <form [formGroup]="quiz" class="quiz__body"
         *ngIf="slideIndex$$.getValue() == item.id">
+
           <h2 class="quiz__title">{{item.title}}</h2>
-          <ul class="quiz-list">
 
+          <ul class="quiz-list quiz-list__radio">
             <ng-container *ngIf="item.type == 'radio'">
-              <li class="quiz-list__item" *ngFor="let i of item.options">
-              <label class="radio">
-                <input type="radio" name="{{i.control}}" value="{{i.price}}"
-                formControlName="{{i.control}}" (click)="selectItem()"/>
-                <span class="check"></span>
-                <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
-                <h4 class="quiz-list__item-title">{{i.name}}</h4>
-              </label>
-            </li>
+              <li class="quiz-list__item quiz-list__item-radio" *ngFor="let i of item.options">
+                <label class="radio">
+                  <input type="radio" name="{{i.control}}" value="{{i.price}}"
+                  formControlName="{{i.control}}" (click)="selectItem()"/>
+                  <span class="check"></span>
+                  <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
+                  <h4 class="quiz-list__item-title">{{i.name}}</h4>
+                </label>
+              </li>
             </ng-container>
-
-            <ng-container *ngIf="item.type == 'text'">
-              <div *ngFor="let i of item.options">{{i.name}}</div>
-            </ng-container>
-
           </ul>
+
+          <ul class="quiz-list quiz-list__text">
+            <ng-container *ngIf="item.type == 'text'">
+              <li class="quiz-list__item quiz-list__item-text" *ngFor="let i of item.options">
+                <label class="radio">
+                  <input type="radio" name="{{i.control}}" value="{{i.price}}"
+                  formControlName="{{i.control}}" (click)="selectItem()"/>
+                  <span class="check"></span>
+                  <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
+                  <h4 class="quiz-list__item-title">{{i.name}}</h4>
+                </label>
+              </li>
+            </ng-container>
+          </ul>
+
         </form>
       </div>
 
