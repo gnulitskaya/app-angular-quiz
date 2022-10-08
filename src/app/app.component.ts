@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   resultsPrice$$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   disableButton$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   showQuiz$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  showFirstScreen$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   public quiz: FormGroup = new FormGroup({
     type: new FormControl(''),
@@ -48,6 +49,10 @@ export class AppComponent implements OnInit {
       switchMap(() => this.selectItem()),
       untilDestroyed(this)
     ).subscribe();
+
+    this.slideIndex$$.pipe(
+      map(x => x > 4 ? this.showQuiz$$.next(false) : null)
+    ).subscribe();
   }
 
   toggleDarkTheme(): void {
@@ -55,7 +60,7 @@ export class AppComponent implements OnInit {
   }
 
   nextClick(): void {
-    if (this.index < storeJson.length - 1) {
+    if (this.index < storeJson.length) {
       this.slideIndex$$.next(++this.index);
       console.log(this.slideIndex$$.getValue())
     }
@@ -73,7 +78,7 @@ export class AppComponent implements OnInit {
       take(1),
       delay(1000),
       map(() => {
-        if (this.index < storeJson.length - 1) {
+        if (this.index < storeJson.length) {
           this.slideIndex$$.next(++this.index);
           this.disableButton$$.next(true);
           console.log(this.slideIndex$$.getValue())
@@ -85,6 +90,7 @@ export class AppComponent implements OnInit {
 
   startClick(): void {
     this.showQuiz$$.next(true);
+    this.showFirstScreen$$.next(false);
   }
 
 }

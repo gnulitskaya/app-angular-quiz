@@ -7,10 +7,8 @@
     </mat-toolbar>
   </div>
   <div class="main__container">
-    <!-- <h1 class="main-header">Расчет стоимости дизайн-проекта</h1>
-    <h3 class="main-text">Пройдите тест и получите подарок при заказе дизайн-проекта</h3> -->
 
-    <ng-container *ngIf='!(showQuiz$$ | async)'>
+    <ng-container *ngIf='showFirstScreen$$ | async; else quizs'>
       <div class="start-page" >
         <h1 class="start-page__header">Узнай стоимость дизайна интерьера под ключ</h1>
         <h3 class="start-page__subheader">Пройди тест и получи персональную скидку и каталог работ студии </h3>
@@ -18,7 +16,9 @@
       </div>
     </ng-container>
 
-    <ng-container *ngIf='showQuiz$$ | async'>
+    <ng-template #quizs>
+
+    <ng-container *ngIf='showQuiz$$ | async; else name'>
       <div class="quiz">
         <div *ngFor="let item of quizList">
           <form [formGroup]="quiz" class="quiz__body"
@@ -70,7 +70,42 @@
 
         </div>
       </div>
+
     </ng-container>
+
+    <ng-template #name>
+      <div class="final-page">
+      <div class="final-page__title">
+        Оставьте телефон: мы закрепим скидку за вашим номером, а также, предоставим расчёт полной стоимости проекта
+      </div>
+      <div class="final-page__content">Скидка действует в течение 30 дней!</div>
+
+      <div class="discount-badge">
+        <div class="discount-badge__title">Ваша скидка:</div>
+        <div class="discount-badge__value">{{resultsPrice$$ | async}} $</div>
+      </div>
+
+      <div class="form">
+        <form action="">
+          <mat-form-field appearance="outline">
+            <mat-label>Введите телефон</mat-label>
+            <input matInput placeholder="Телефон">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Введите имя</mat-label>
+            <input matInput placeholder="Имя">
+          </mat-form-field>
+          <button mat-flat-button color="primary" class="final-page__btn" (click)="startClick()">Узнать стоимость</button>
+        </form>
+      </div>
+      </div>
+    </ng-template>
+
+    </ng-template>
+
+
+
+
 
   </div>
 </div>
