@@ -131,8 +131,26 @@
   }
 }
 
-.main-header {
-  margin: 20px 0 10px 0;
+.main__container {
+  height: 90vh;
+}
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  &__header {
+    margin-bottom: 10px;
+  }
+  &__subheader {
+    margin-bottom: 30px;
+  }
+  &__btn {
+    width: fit-content;
+    margin: 0 auto;
+  }
 }
 
 .footer {

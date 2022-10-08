@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, BehaviorSubject, of } from 'rxjs';
-import { map, switchMap, take, mapTo, delay } from 'rxjs/operators';
+import { map, switchMap, take, mapTo, delay, tap } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import storeJson from './store.json';
 
@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
   index: number = 0;
   slideIndex$$: BehaviorSubject<number> = new BehaviorSubject<number>(this.index);
   resultsPrice$$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  disableButton$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  showQuiz$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   public quiz: FormGroup = new FormGroup({
     type: new FormControl(''),
@@ -42,6 +44,7 @@ export class AppComponent implements OnInit {
     this.quiz.valueChanges.pipe(
       map(x => Number(x.type) + Number(x.style) + Number(x.budget) + Number(x.time) + Number(x.share)),
       map(x => this.resultsPrice$$.next(x)),
+      tap(() => this.disableButton$$.next(false)),
       switchMap(() => this.selectItem()),
       untilDestroyed(this)
     ).subscribe();
@@ -68,15 +71,20 @@ export class AppComponent implements OnInit {
   selectItem(): Observable<void> {
     return of(void 0).pipe(
       take(1),
-      delay(500),
+      delay(1000),
       map(() => {
         if (this.index < storeJson.length - 1) {
           this.slideIndex$$.next(++this.index);
+          this.disableButton$$.next(true);
           console.log(this.slideIndex$$.getValue())
         }
       }),
       mapTo(void 0)
     )
+  }
+
+  startClick(): void {
+    this.showQuiz$$.next(true);
   }
 
 }

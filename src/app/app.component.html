@@ -7,59 +7,70 @@
     </mat-toolbar>
   </div>
   <div class="main__container">
-    <h1 class="main-header">Расчет стоимости дизайн-проекта</h1>
-    <h3 class="main-text">Пройдите тест и получите подарок при заказе дизайн-проекта</h3>
+    <!-- <h1 class="main-header">Расчет стоимости дизайн-проекта</h1>
+    <h3 class="main-text">Пройдите тест и получите подарок при заказе дизайн-проекта</h3> -->
 
-    <div class="quiz">
-      <div *ngFor="let item of quizList">
-        <form [formGroup]="quiz" class="quiz__body"
-        *ngIf="slideIndex$$.getValue() == item.id">
-
-          <h2 class="quiz__title">{{item.title}}</h2>
-
-          <ul class="quiz-list quiz-list__radio">
-            <ng-container *ngIf="item.type == 'radio'">
-              <li class="quiz-list__item quiz-list__item-radio" *ngFor="let i of item.options">
-                <label class="radio">
-                  <input type="radio" name="{{i.control}}" value="{{i.price}}"
-                  formControlName="{{i.control}}" (click)="selectItem()"/>
-                  <span class="check"></span>
-                  <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
-                  <h4 class="quiz-list__item-title">{{i.name}}</h4>
-                </label>
-              </li>
-            </ng-container>
-          </ul>
-
-          <ul class="quiz-list quiz-list__text">
-            <ng-container *ngIf="item.type == 'text'">
-              <li class="quiz-list__item quiz-list__item-text" *ngFor="let i of item.options">
-                <label class="radio">
-                  <input type="radio" name="{{i.control}}" value="{{i.price}}"
-                  formControlName="{{i.control}}" (click)="selectItem()"/>
-                  <span class="check"></span>
-                  <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
-                  <h4 class="quiz-list__item-title">{{i.name}}</h4>
-                </label>
-              </li>
-            </ng-container>
-          </ul>
-
-        </form>
+    <ng-container *ngIf='!(showQuiz$$ | async)'>
+      <div class="start-page" >
+        <h1 class="start-page__header">Узнай стоимость дизайна интерьера под ключ</h1>
+        <h3 class="start-page__subheader">Пройди тест и получи персональную скидку и каталог работ студии </h3>
+        <button mat-flat-button color="primary" class="start-page__btn" (click)="startClick()">Пройти тест</button>
       </div>
+    </ng-container>
 
-      <div class="quiz__footer">
-        <div class="footer__inner">
-          <button mat-stroked-button (click)="prevClick()">Назад</button>
-          <button mat-flat-button color="primary" class="next-btn" (click)="nextClick()">Далее</button>
+    <ng-container *ngIf='showQuiz$$ | async'>
+      <div class="quiz">
+        <div *ngFor="let item of quizList">
+          <form [formGroup]="quiz" class="quiz__body"
+          *ngIf="slideIndex$$.getValue() == item.id">
+
+            <h2 class="quiz__title">{{item.title}}</h2>
+
+            <ul class="quiz-list quiz-list__radio">
+              <ng-container *ngIf="item.type == 'radio'">
+                <li class="quiz-list__item quiz-list__item-radio" *ngFor="let i of item.options">
+                  <label class="radio">
+                    <input type="radio" name="{{i.control}}" value="{{i.price}}"
+                    formControlName="{{i.control}}" (click)="selectItem()"/>
+                    <span class="check"></span>
+                    <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
+                    <h4 class="quiz-list__item-title">{{i.name}}</h4>
+                  </label>
+                </li>
+              </ng-container>
+            </ul>
+
+            <ul class="quiz-list quiz-list__text">
+              <ng-container *ngIf="item.type == 'text'">
+                <li class="quiz-list__item quiz-list__item-text" *ngFor="let i of item.options">
+                  <label class="radio">
+                    <input type="radio" name="{{i.control}}" value="{{i.price}}"
+                    formControlName="{{i.control}}" (click)="selectItem()"/>
+                    <span class="check"></span>
+                    <img *ngIf="i.img" [src]="i.img" [alt]="i.name" />
+                    <h4 class="quiz-list__item-title">{{i.name}}</h4>
+                  </label>
+                </li>
+              </ng-container>
+            </ul>
+
+          </form>
         </div>
 
-        <mat-chip-list aria-label="Result price">
-          <span>Result:</span>
-          <mat-chip color="accent" selected>{{resultsPrice$$ | async}} $</mat-chip>
-        </mat-chip-list>
+        <div class="quiz__footer">
+          <div class="footer__inner">
+            <button [disabled]="slideIndex$$.getValue() == 0" mat-stroked-button (click)="prevClick()">Назад</button>
+            <button [disabled]="disableButton$$ | async" mat-flat-button color="primary" class="next-btn" (click)="nextClick()">Далее</button>
+          </div>
 
+          <mat-chip-list aria-label="Result price">
+            <span>Result:</span>
+            <mat-chip color="accent" selected>{{resultsPrice$$ | async}} $</mat-chip>
+          </mat-chip-list>
+
+        </div>
       </div>
-    </div>
+    </ng-container>
+
   </div>
 </div>
