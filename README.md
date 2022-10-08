@@ -5,6 +5,13 @@
 
 
 to do:
--  start page with button "start"
 -  disable button if you not answer the question
--  add the last step - form to get data about client (phone, name)
+-  get data and put it into pdf
+-  add snackbar/thank page after 
+-  fix bug when you click prev button
+-  add to form checkbox agreement
+-  add phone mask
+-  add messangers where you can send data (telegram, vk, whatsapp, viber)
+-  add progress bar
+-  start page with button "start" +
+-  add the last step - form to get data about client (phone, name) +

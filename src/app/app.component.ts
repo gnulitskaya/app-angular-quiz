@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
   public quizData: FormGroup = new FormGroup({
     userName: new FormControl(''),
     userPhone: new FormControl(''),
+    userEmail: new FormControl(''),
   });
 
   constructor(){}
