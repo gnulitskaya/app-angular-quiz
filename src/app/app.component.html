@@ -75,37 +75,44 @@
 
     <ng-template #name>
       <div class="final-page">
-      <div class="final-page__title">
-        Оставьте телефон: мы закрепим скидку за вашим номером, а также, предоставим расчёт полной стоимости проекта
-      </div>
-      <div class="final-page__content">Скидка действует в течение 30 дней!</div>
+        <h1 class="final-page__title">
+          Оставьте телефон: мы закрепим скидку за вашим номером, а также, предоставим расчёт полной стоимости проекта
+        </h1>
+        <h3 class="final-page__content">Скидка действует в течение 30 дней!</h3>
 
+        <div class="discount-badge">
+          <div class="discount-badge__title">Ваша скидка:</div>
+          <div class="discount-badge__value">{{resultsPrice$$ | async}} $</div>
+        </div>
+
+        <div class="form">
+          <form [formGroup]="quizData">
+            <mat-form-field appearance="outline">
+              <mat-label>Введите телефон</mat-label>
+              <input formControlName="userPhone" matInput placeholder="Телефон">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Введите имя</mat-label>
+              <input formControlName="userName" matInput placeholder="Имя">
+            </mat-form-field>
+            <button mat-flat-button color="primary" class="final-page__btn" (click)="sendClick()">Узнать стоимость</button>
+          </form>
+        </div>
+      </div>
+    </ng-template>
+
+    </ng-template>
+
+    <!-- <div class="thank-page">
+      <div class="thank-page__col">
+        <p class="title thank-page__title">Спасибо! 👏</p>
+        <p class="subtitle thank-page__subtitle">Благодарим за ответы! Мы ответим вам на указанный E-mail.</p>
+      </div>
       <div class="discount-badge">
         <div class="discount-badge__title">Ваша скидка:</div>
         <div class="discount-badge__value">{{resultsPrice$$ | async}} $</div>
       </div>
-
-      <div class="form">
-        <form action="">
-          <mat-form-field appearance="outline">
-            <mat-label>Введите телефон</mat-label>
-            <input matInput placeholder="Телефон">
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Введите имя</mat-label>
-            <input matInput placeholder="Имя">
-          </mat-form-field>
-          <button mat-flat-button color="primary" class="final-page__btn" (click)="startClick()">Узнать стоимость</button>
-        </form>
-      </div>
-      </div>
-    </ng-template>
-
-    </ng-template>
-
-
-
-
+    </div> -->
 
   </div>
 </div>

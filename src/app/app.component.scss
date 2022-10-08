@@ -153,6 +153,38 @@
   }
 }
 
+.final-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__content {
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+  }
+}
+.discount-badge {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  &__title {
+    margin-right: 5px;
+  }
+
+  &__value {
+  }
+}
+.form {
+}
+
+
 .footer {
   &__inner {
     display: flex;

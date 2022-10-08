@@ -37,7 +37,12 @@ export class AppComponent implements OnInit {
     budget: new FormControl(''),
     time: new FormControl(''),
     share: new FormControl(''),
-  })
+  });
+
+  public quizData: FormGroup = new FormGroup({
+    userName: new FormControl(''),
+    userPhone: new FormControl(''),
+  });
 
   constructor(){}
 
@@ -91,6 +96,10 @@ export class AppComponent implements OnInit {
   startClick(): void {
     this.showQuiz$$.next(true);
     this.showFirstScreen$$.next(false);
+  }
+
+  sendClick(): void {
+
   }
 
 }
