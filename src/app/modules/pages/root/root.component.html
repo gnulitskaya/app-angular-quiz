@@ -1,1 +1,13 @@
-<p>root works!</p>
+<div class="wrapper">
+  <div class="header">
+    <mat-toolbar>
+      <mat-slide-toggle checked (click)="toggleDarkTheme()"
+        >DARK THEME</mat-slide-toggle
+      >
+    </mat-toolbar>
+  </div>
+  <div class="main__container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

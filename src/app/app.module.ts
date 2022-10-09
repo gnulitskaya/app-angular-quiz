@@ -1,19 +1,19 @@
-import { SkeletonDirective } from './modules/shared/directives/skeleton.directive';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { AppSharedLowModule } from './modules/shared/app-shared.module';
-import { AppCoreModule } from './modules/core/core.module';
-import { AppRoutingModule } from './app-routing.module';
-import { RootModule } from './modules/pages/root/root.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', loadChildren: () => import('./modules/pages/root/root.module').then(m => m.RootModule) },
+];
 
 @NgModule({
-  declarations: [AppComponent,
-  SkeletonDirective],
+  declarations: [AppComponent],
   imports: [
-    AppRoutingModule,
-    AppCoreModule,
-    AppSharedLowModule,
-    RootModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
   ],
   bootstrap: [AppComponent]
 })

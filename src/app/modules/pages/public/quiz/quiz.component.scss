@@ -1,0 +1,212 @@
+@import "../../../../../app/style/variables.scss";
+
+.quiz {
+  margin-top: 40px;
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+}
+
+.quiz-list {
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+
+  &__item .radio {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      outline: none;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  &__item {
+    text-align: left;
+    border-radius: 6px;
+    border: 1px solid #e6e6e6;
+    transition: all ease-in-out .2s;
+  }
+
+  // -- RADIO -- //
+
+  &.quiz-list__radio {
+    justify-content: flex-start;
+    @media (max-width: $mobile) {
+      justify-content: space-between;
+    }
+  }
+
+  &__item-radio {
+    width: 100%;
+    margin: 0 20px 20px 0;
+    width: calc(33.3% - 20px);
+    max-width: 420px;
+    @media (max-width: $mobile) {
+      margin: 15px 0 0 0;
+      width: calc(50% - 7.5px);
+    }
+    img {
+      width: 100%;
+      max-height: 256px;
+      height: 100%;
+      cursor: pointer;
+      object-fit: cover;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    .check {
+      display: none;
+      right: 15px;
+      top: 15px;
+      background: #7957d5 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath d='M.04.627L.146.52.43.804.323.91zm.177.177L.854.167.96.273.323.91z' fill='%23fff'/%3E%3C/svg%3E") no-repeat 40%;
+      background-size: 21px;
+      background-color: #ba9160;
+      box-shadow: 0.6px 1.9px 6px 0 rgba(186, 145, 96, 0.2);
+      border: 2px solid #ba9160;
+    }
+  }
+
+  // -- TEXT -- //
+
+  &.quiz-list__text {
+    justify-content: space-between;
+  }
+
+  &__item-text {
+    flex: 0 1 49%;
+    margin-bottom: 1rem;
+    padding: 7px;
+    @media (max-width: $mobile) {
+      flex: 0 1 100%;
+    }
+    .check {
+      left: 12px;
+      top: 11px;
+    }
+    .radio input:checked + .check {
+      background: #7957d5 url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Cpath d='M.04.627L.146.52.43.804.323.91zm.177.177L.854.167.96.273.323.91z' fill='%23fff'/%3E%3C/svg%3E") no-repeat 40%;
+      background-size: 21px;
+      background-color: #ba9160;
+    }
+    .quiz-list__item-title {
+      padding-left: 55px;
+    }
+  }
+
+  .check {
+    flex: 0 0 1.25rem;
+    position: absolute;
+    z-index: 100;
+    border-radius: 50%;
+    border: 1px solid #ba9160;
+    width: 30px;
+    height: 30px;
+  }
+
+  .radio input:checked + .check {
+    display: block;
+  }
+
+  &__item-title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+  }
+}
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  &__header {
+    margin-bottom: 10px;
+  }
+  &__subheader {
+    margin-bottom: 30px;
+  }
+  &__btn {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+.final-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__content {
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+  }
+}
+.discount-badge {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__title {
+    margin-right: 5px;
+  }
+
+  &__value {
+  }
+}
+.form {
+  &__agreement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.thank-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    margin-bottom: 14px;
+  }
+}
+
+.footer {
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

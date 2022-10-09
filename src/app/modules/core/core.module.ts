@@ -7,14 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     // Angular core modules
-    BrowserModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],
   exports: [
-    BrowserModule,
+
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

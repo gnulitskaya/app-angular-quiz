@@ -6,7 +6,7 @@ import { AppSharedLowModule } from '../../shared/app-shared.module';
 const routes: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), AppSharedLowModule],
+  imports: [RouterModule.forChild(routes)],
   exports: [],
   declarations: [PrivateComponent],
   providers: [],

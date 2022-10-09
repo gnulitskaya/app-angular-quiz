@@ -12,4 +12,9 @@ export class RootComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  toggleDarkTheme(): void {
+    document.body.classList.toggle('darkMode');
+  }
+
 }
