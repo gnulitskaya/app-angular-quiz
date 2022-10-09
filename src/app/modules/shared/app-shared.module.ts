@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 // import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 // import { MatMenuModule } from '@angular/material/menu';
@@ -18,9 +18,12 @@ import { MatInputModule } from '@angular/material/input';
 // import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
+import { SkeletonComponent } from './skeleton/skeleton.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SkeletonComponent,
+  ],
   imports: [
     MatButtonModule,
     MatCardModule,
@@ -29,7 +32,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
   ],
   exports: [
     MatButtonModule,
@@ -39,7 +42,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCheckboxModule
   ],
   providers: [],
 })

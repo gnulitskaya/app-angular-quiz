@@ -7,35 +7,35 @@
       {
         "id": 1,
         "name": "Квартира",
-        "price": 6000,
+        "price": 4156,
         "img": "../assets/flat.jpeg",
         "control": "type"
       },
       {
         "id": 2,
         "name": "Дом",
-        "price": 7000,
+        "price": 4167,
         "img": "../assets/house.jpeg",
         "control": "type"
       },
       {
         "id": 3,
         "name": "Офис",
-        "price": 8000,
+        "price": 4196,
         "img": "../assets/office.jpeg",
         "control": "type"
       },
       {
         "id": 4,
         "name": "Ресторан, кафе",
-        "price": 9000,
+        "price": 4126,
         "img": "../assets/cafe.jpeg",
         "control": "type"
       },
       {
         "id": 5,
         "name": "Магазин",
-        "price": 12000,
+        "price": 4000,
         "img": "../assets/shop.jpeg",
         "control": "type"
       }
@@ -84,7 +84,7 @@
       {
         "id": 6,
         "name": "Другой",
-        "price": 6000,
+        "price": 4000,
         "img": "../assets/other.jpeg",
         "control": "style"
       }

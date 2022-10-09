@@ -1,3 +1,4 @@
+import { SkeletonDirective } from './modules/shared/directives/skeleton.directive';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppSharedLowModule } from './modules/shared/app-shared.module';
@@ -6,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RootModule } from './modules/pages/root/root.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+  SkeletonDirective],
   imports: [
     AppRoutingModule,
     AppCoreModule,

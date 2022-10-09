@@ -164,16 +164,17 @@
   }
 
   &__content {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   &__btn {
   }
 }
 .discount-badge {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
   &__title {
     margin-right: 5px;
   }
@@ -182,8 +183,29 @@
   }
 }
 .form {
+  &__agreement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
 }
 
+.thank-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    margin-bottom: 14px;
+  }
+}
 
 .footer {
   &__inner {

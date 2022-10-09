@@ -5,13 +5,14 @@
 
 
 to do:
--  disable button if you not answer the question
+-  disable button if you not answer the question ?
 -  get data and put it into pdf
--  add snackbar/thank page after 
 -  fix bug when you click prev button
--  add to form checkbox agreement
--  add phone mask
+-  add phone mask ?
+-  add skeleton +-
 -  add messangers where you can send data (telegram, vk, whatsapp, viber)
 -  add progress bar
 -  start page with button "start" +
+-  add to form checkbox agreement +
+-  add snackbar/thank page after +
 -  add the last step - form to get data about client (phone, name) +

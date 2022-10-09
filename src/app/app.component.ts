@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
   disableButton$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   showQuiz$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   showFirstScreen$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  showThankScreen$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   public quiz: FormGroup = new FormGroup({
     type: new FormControl(''),
@@ -42,9 +43,19 @@ export class AppComponent implements OnInit {
   public quizData: FormGroup = new FormGroup({
     userName: new FormControl(''),
     userPhone: new FormControl(''),
+    userEmail: new FormControl(''),
   });
 
   constructor(){}
+
+  isLoading = false;
+
+  load() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
+  }
 
   ngOnInit(): void {
     this.quiz.valueChanges.pipe(
@@ -99,7 +110,7 @@ export class AppComponent implements OnInit {
   }
 
   sendClick(): void {
-
+    this.showThankScreen$$.next(true);
   }
 
 }
