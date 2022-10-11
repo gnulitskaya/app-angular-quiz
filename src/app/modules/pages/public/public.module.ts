@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SkeletonDirective } from '../../shared/directives/skeleton.directive';
+import { ItemsStore, ItemsQuery } from './quiz/store/quiz.store';
+import { QuizService } from './quiz/store/quiz.service';
 
 const routes: Routes = [
   { path: '', component: PublicComponent },
@@ -23,7 +25,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),],
   exports: [],
   declarations: [PublicComponent, QuizComponent, SkeletonDirective],
-  providers: [],
+  providers: [ItemsStore, ItemsQuery, QuizService],
 })
 
 export class PublicModule {}

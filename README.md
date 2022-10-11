@@ -20,3 +20,4 @@ done:
 -  add snackbar/thank page after +
 -  add the last step - form to get data about client (phone, name) +
 -  add skeleton +
+-  add component for quiz, change structure

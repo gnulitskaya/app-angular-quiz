@@ -2,7 +2,10 @@
 
 
     <button (click)="load()">Load</button>
-
+    jjjjj
+<div *ngFor="let list of lists$ | async">
+  {{list.title}}
+</div>
     <!-- <h3>Inline</h3>
     <div class="flex items-center">
       <p>Some data:</p>

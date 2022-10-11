@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject, of } from 'rxjs';
 import { map, switchMap, take, mapTo, delay, tap } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import storeJson from '../../../../store.json';
+import { Item, ItemsQuery } from './store/quiz.store';
 
 export interface Option {
   id: number;
@@ -19,8 +20,7 @@ export interface Option {
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
-
-
+  lists$: Observable<Item[]> | undefined;
   @Input() checked: boolean = true;
 
   quizList = storeJson;
@@ -47,7 +47,7 @@ export class QuizComponent implements OnInit {
     userEmail: new FormControl(''),
   });
 
-  constructor(){}
+  constructor(private itemsQuery: ItemsQuery){}
 
   isLoading = false;
 
@@ -59,6 +59,8 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.lists$ = this.itemsQuery.selectAll();
+
     this.quiz.valueChanges.pipe(
       map(x => Number(x.type) + Number(x.style) + Number(x.budget) + Number(x.time) + Number(x.share)),
       map(x => this.resultsPrice$$.next(x)),
