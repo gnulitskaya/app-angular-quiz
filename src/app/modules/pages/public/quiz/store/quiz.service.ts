@@ -10,9 +10,15 @@ export class QuizService {
 
   getAllCourses(): Observable<Item[]> {
     return this.http.get<Item[]>('assets/store.json').pipe(
+      tap(() => {
+        this.quizStore.setLoading(true);
+      }),
       tap(courses => {
         this.quizStore.loadItems(courses, true);
-      })
+      }),
+      tap(() => {
+        this.quizStore.setLoading(false);
+      }),
     );
   }
 }

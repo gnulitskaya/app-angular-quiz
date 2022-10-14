@@ -23,7 +23,7 @@ export interface Option {
 export class QuizComponent implements OnInit {
   quizList$: Observable<Item[]> | undefined;
   @Input() checked: boolean = true;
-
+  public loading$: Observable<boolean> = this.itemsQuery.selectLoading();
   // quizList = storeJson;
 
   index: number = 0;

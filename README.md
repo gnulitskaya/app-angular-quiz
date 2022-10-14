@@ -15,6 +15,7 @@ to do:
 -  add progress bar
 
 done:
+-  add store, get data from store
 -  start page with button "start" +
 -  add to form checkbox agreement +
 -  add snackbar/thank page after +

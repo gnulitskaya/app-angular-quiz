@@ -58,10 +58,11 @@
 
             <h2 class="quiz__title">{{item.title}}</h2>
 
+
             <ul class="quiz-list quiz-list__radio">
               <ng-container *ngIf="item.type == 'radio'">
                 <li class="quiz-list__item quiz-list__item-radio" *ngFor="let i of item.options">
-                  <label class="radio" *skeleton="isLoading; height: '300px'; width: '100%'">
+                  <label class="radio" *skeleton="(loading$ | async) === true ? true : false; height: '300px'; width: '100%'">
                     <input type="radio" name="{{i.control}}" value="{{i.price}}"
                     formControlName="{{i.control}}" (click)="selectItem()"/>
                     <span class="check"></span>

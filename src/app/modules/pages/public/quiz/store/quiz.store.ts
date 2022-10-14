@@ -25,7 +25,7 @@ export class ItemsStore extends EntityStore<ItemsState> {
   }
 
   loadItems(items: Item[], areItemsLoaded: boolean) {
-    // this.set(items);
+    this.set(items);
     this.update(state => ({
       ...state,
       areItemsLoaded
