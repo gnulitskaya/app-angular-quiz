@@ -1,9 +1,10 @@
+import { QuizService } from './store/quiz.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { map, switchMap, take, mapTo, delay, tap } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import storeJson from '../../../../store.json';
+import storeJson from '../../../../../../store.json';
 import { Item, ItemsQuery } from './store/quiz.store';
 
 export interface Option {
@@ -20,10 +21,10 @@ export interface Option {
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
-  lists$: Observable<Item[]> | undefined;
+  quizList$: Observable<Item[]> | undefined;
   @Input() checked: boolean = true;
 
-  quizList = storeJson;
+  // quizList = storeJson;
 
   index: number = 0;
   slideIndex$$: BehaviorSubject<number> = new BehaviorSubject<number>(this.index);
@@ -47,7 +48,7 @@ export class QuizComponent implements OnInit {
     userEmail: new FormControl(''),
   });
 
-  constructor(private itemsQuery: ItemsQuery){}
+  constructor(private itemsQuery: ItemsQuery, private quizServise: QuizService){}
 
   isLoading = false;
 
@@ -59,7 +60,7 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.lists$ = this.itemsQuery.selectAll();
+    this.quizList$ = this.quizServise.getAllCourses();
 
     this.quiz.valueChanges.pipe(
       map(x => Number(x.type) + Number(x.style) + Number(x.budget) + Number(x.time) + Number(x.share)),

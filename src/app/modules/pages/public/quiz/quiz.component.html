@@ -2,10 +2,10 @@
 
 
     <button (click)="load()">Load</button>
-    jjjjj
+    <!-- jjjjj
 <div *ngFor="let list of lists$ | async">
   {{list.title}}
-</div>
+</div> -->
     <!-- <h3>Inline</h3>
     <div class="flex items-center">
       <p>Some data:</p>
@@ -52,7 +52,7 @@
   <ng-template #quizMain>
     <ng-container *ngIf='showQuiz$$ | async; else finalPage'>
       <div class="quiz">
-        <div *ngFor="let item of quizList">
+        <div *ngFor="let item of quizList$ | async">
           <form [formGroup]="quiz" class="quiz__body"
           *ngIf="slideIndex$$.getValue() == item.id">
 

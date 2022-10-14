@@ -1,17 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ItemsStore } from './quiz.store';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Item, ItemsStore } from './quiz.store';
+
 @Injectable()
 export class QuizService {
-  constructor(private quizStore: ItemsStore) {
+  constructor(private http: HttpClient, private quizStore: ItemsStore) {}
+
+  getAllCourses(): Observable<Item[]> {
+    return this.http.get<Item[]>('assets/store.json').pipe(
+      tap(courses => {
+        this.quizStore.loadItems(courses, true);
+      })
+    );
   }
-
-  // updateList(data: List, item: Item, purchased: boolean) {
-  //   this.listStore.update(data.id, list => {
-  //     return {
-  //       ...list,
-  //       items: update(data.items, item,  {purchased})
-  //     }
-  //  });
-  // }
-
 }

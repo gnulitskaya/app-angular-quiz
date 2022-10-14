@@ -23,6 +23,14 @@ export class ItemsStore extends EntityStore<ItemsState> {
   constructor() {
     super() ;
   }
+
+  loadItems(items: Item[], areItemsLoaded: boolean) {
+    // this.set(items);
+    this.update(state => ({
+      ...state,
+      areItemsLoaded
+    }));
+  }
 }
 
 @Injectable()
